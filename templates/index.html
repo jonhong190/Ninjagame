@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ninja_game.css') }}">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h4>Gold Count<br>
+                <p id="counter">{{ session['count_gold'] }}</p>
+            </h4>
+            <h1>Ninja Game</h1>
+        </div>
+        <div id="container">
+            <form class="box" action="/process1" method="post">
+                <h3>Farm</h3>
+                <p>Earn 10 - 20 Gold</p>
+                <input type="submit" name="farm_gold" value="Get Gold!">
+            </form>
+            <form class="box" action="/process2" method="post">
+                <h3>Cave</h3>
+                <p>Earn 5 - 10 Gold</p>
+                <input type="submit" name="cave_gold" value="Get Gold!">
+            </form>
+            <form class="box" action="/process3" method="post">
+                <h3>House</h3>
+                <p>Earn 15 - 25 Gold</p>
+                <input type="submit" name="house_gold" value="Get Gold!">
+            </form>
+            <form class="box" action="/process4" method="post">
+                <h3>Casino</h3>
+                <p>Earn/Takes 5-50 Gold</p>
+                <input type="submit" name="casino_gold" value="Gamble Away!">
+            </form>
+        </div>
+        <div id="footer">
+                <h5>Activity:</h5>
+                <br>
+                <div id="activities">
+                    {% for i in session['activity'] %}
+                        <p class="activity">{{ i }}</p>
+                        {% endfor %}
+                </div>
+           
+           
+        </div>
+    </div>
+</body>
+</html>
